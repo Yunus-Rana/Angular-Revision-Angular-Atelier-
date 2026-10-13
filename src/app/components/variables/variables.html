@@ -1,0 +1,100 @@
+<main class="page-shell">
+  <header class="page-hero">
+    <p class="eyebrow">Practice module 01</p>
+    <h1 class="page-title">Variables</h1>
+    <p class="page-description">
+      Get to know the values behind a component, from simple types to objects and lists.
+    </p>
+  </header>
+
+  <section class="panel-grid" aria-label="Student variables">
+    <article class="panel profile-panel">
+      <div class="profile-heading">
+        <div class="profile-avatar" aria-hidden="true">{{ studentName.charAt(0) }}</div>
+        <div>
+          <span class="section-label">String &amp; number</span>
+          <h2 class="section-heading">{{ studentName }}</h2>
+          <span class="profile-status">
+            <span class="status-dot"></span>
+            {{ isStudentActive ? 'Active student' : 'Inactive student' }}
+          </span>
+        </div>
+      </div>
+      <div class="profile-facts">
+        <div>
+          <span class="section-label">Age</span>
+          <strong>{{ studentAge }} years</strong>
+        </div>
+        <div>
+          <span class="section-label">Current date</span>
+          <strong>{{ currentDate | date: 'longDate' }}</strong>
+        </div>
+      </div>
+    </article>
+
+    <article class="panel">
+      <span class="section-label">Object</span>
+      <h2 class="section-heading">Student record</h2>
+      <dl class="detail-list">
+        <div><dt>Grade</dt><dd>{{ student.grade }}</dd></div>
+        <div><dt>CGPA</dt><dd>{{ student.CGPA }}</dd></div>
+        <div><dt>City</dt><dd>{{ student.city }}</dd></div>
+        <div><dt>Blood group</dt><dd>{{ student.bloodgroup }}</dd></div>
+        <div class="detail-wide"><dt>Education</dt><dd>{{ student.education }}</dd></div>
+      </dl>
+    </article>
+  </section>
+
+  <section class="panel-grid section-spaced" aria-label="Array variables">
+    <article class="panel">
+      <span class="section-label">String array</span>
+      <h2 class="section-heading">Cities</h2>
+      <ul class="city-list">
+        @for (city of cityList; track city) {
+          <li>{{ city }}</li>
+        }
+      </ul>
+    </article>
+
+    <article class="panel">
+      <span class="section-label">Number array</span>
+      <h2 class="section-heading">Roll numbers</h2>
+      <ul class="city-list">
+        @for (roll of rollList; track roll) {
+          <li>{{ roll }}</li>
+        }
+      </ul>
+    </article>
+  </section>
+
+  <section class="panel section-spaced-large" aria-label="Student list">
+    <span class="section-label">Array of objects</span>
+    <h2 class="section-heading">Class records</h2>
+    <div class="table-wrap">
+      <table class="atelier-table">
+        <thead>
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Grade</th>
+            <th scope="col">CGPA</th>
+            <th scope="col">City</th>
+            <th scope="col">Blood group</th>
+            <th scope="col">Education</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (record of studentList; track $index) {
+            <tr>
+              <td>{{ $index + 1 }}</td>
+              <td>{{ record.grade }}</td>
+              <td>{{ record.CGPA }}</td>
+              <td>{{ record.city }}</td>
+              <td>{{ record.bloodgroup }}</td>
+              <td>{{ record.education }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,71 @@
+<main class="page-shell">
+  <header class="page-hero">
+    <p class="eyebrow">Practice module 02</p>
+    <h1 class="page-title">Data binding</h1>
+    <p class="page-description">
+      See component values in the view, and try the existing inputs to explore two-way binding.
+    </p>
+  </header>
+
+  <section class="demo-grid" aria-label="Data binding examples">
+    <article class="panel">
+      <span class="section-label">Interpolation</span>
+      <h2 class="section-heading">Product details</h2>
+      <p class="binding-value">{{ productName }}</p>
+      <p class="inline-note">Current product name</p>
+      <hr />
+      <p class="binding-value">{{ productPrice }}</p>
+      <p class="inline-note">Current product price</p>
+    </article>
+
+    <article class="panel">
+      <span class="section-label">Property binding</span>
+      <h2 class="section-heading">Bound input settings</h2>
+      <div class="field-stack">
+        <div>
+          <label class="field-label" for="limited-text">Text input (maximum {{ maxCharacters }} characters)</label>
+          <input id="limited-text" class="atelier-input" type="text" [maxLength]="maxCharacters" />
+        </div>
+        <div>
+          <span class="field-label">Dynamic input type</span>
+          <input [type]="dynamicType" aria-label="Dynamic radio input" />
+        </div>
+      </div>
+    </article>
+
+    <article class="panel">
+      <span class="section-label">Event binding</span>
+      <h2 class="section-heading">Respond to a change</h2>
+      <div class="field-stack">
+        <button class="atelier-button" type="button" (click)="show()">Show welcome</button>
+        <div>
+          <label class="field-label" for="event-product">Choose a product</label>
+          <select id="event-product" class="atelier-select" (change)="dropchange()">
+            <option value="">Phone</option>
+            <option value="">PC</option>
+            <option value="">Laptop</option>
+          </select>
+        </div>
+      </div>
+    </article>
+
+    <article class="panel">
+      <span class="section-label">Two-way binding</span>
+      <h2 class="section-heading">Edit the product name</h2>
+      <div class="field-stack">
+        <div>
+          <label class="field-label" for="product-name">Product name</label>
+          <input id="product-name" class="atelier-input" type="text" [(ngModel)]="productName" />
+        </div>
+        <div>
+          <label class="field-label" for="product-choice">Choose a product</label>
+          <select id="product-choice" class="atelier-select" [(ngModel)]="productName">
+            <option value="">Phone</option>
+            <option value="">PC</option>
+            <option value="">Laptop</option>
+          </select>
+        </div>
+      </div>
+    </article>
+  </section>
+</main>

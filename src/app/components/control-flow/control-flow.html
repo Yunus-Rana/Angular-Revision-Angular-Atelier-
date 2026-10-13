@@ -1,0 +1,110 @@
+<main class="page-shell">
+  <header class="page-hero">
+    <p class="eyebrow">Practice module 03</p>
+    <h1 class="page-title">Control flow</h1>
+    <p class="page-description">
+      Explore conditional content, repeated data, and selection controls with Angular templates.
+    </p>
+  </header>
+
+  <section class="panel-grid" aria-label="Conditional rendering examples">
+    <article class="panel">
+      <span class="section-label">Conditional rendering</span>
+      <h2 class="section-heading">Show and hide content</h2>
+      @if (isdiv1Visible == true) {
+        <div class="example-output is-visible">This content is currently visible.</div>
+      } @else {
+        <div class="example-output">The content is hidden.</div>
+      }
+      <div class="control-row control-row-spaced">
+        <button (click)="toggleDiv()" class="btn atelier-button" type="button">Toggle visibility</button>
+        <span class="inline-note">Visible: {{ isdiv1Visible }}</span>
+      </div>
+    </article>
+
+    <article class="panel">
+      <span class="section-label">Conditional form content</span>
+      <h2 class="section-heading">Promo code</h2>
+      <label class="control-row field-label">
+        <input type="checkbox" [(ngModel)]="isCode" />
+        <span>Promo code available</span>
+      </label>
+      @if (isCode) {
+        <label class="field-label" for="promo-code">Enter promo code</label>
+        <input id="promo-code" class="atelier-input" type="text" placeholder="Your code" />
+      } @else {
+        <p class="inline-note">No offer code entered.</p>
+      }
+    </article>
+  </section>
+
+  <section class="panel-grid section-spaced" aria-label="Repeated city data">
+    <article class="panel">
+      <span class="section-label">Repeated content</span>
+      <h2 class="section-heading">City list</h2>
+      <ul class="city-list">
+        @for (item of cityList; track $index) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    </article>
+
+    <article class="panel">
+      <span class="section-label">Selection control</span>
+      <h2 class="section-heading">Choose a city</h2>
+      <select class="atelier-select" aria-label="Choose a city">
+        @for (item of cityList; track $index) {
+          <option value="">{{ item }}</option>
+        }
+      </select>
+    </article>
+  </section>
+
+  <section class="panel section-spaced-large" aria-label="Student table">
+    <span class="section-label">Repeated records</span>
+    <h2 class="section-heading">Student overview</h2>
+    <div class="table-wrap">
+      <table class="atelier-table">
+        <thead>
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Grade</th>
+            <th scope="col">CGPA</th>
+            <th scope="col">City</th>
+            <th scope="col">Blood group</th>
+            <th scope="col">Education</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of studentList; track $index) {
+            <tr>
+              <td>{{ $index + 1 }}</td>
+              <td>{{ item.grade }}</td>
+              <td>{{ item.CGPA }}</td>
+              <td>{{ item.city }}</td>
+              <td>{{ item.bloodgroup }}</td>
+              <td>{{ item.education }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section-spaced-xl" aria-label="Student cards">
+    <span class="section-label">The same data, another view</span>
+    <h2 class="section-heading">Student cards</h2>
+    <div class="student-grid">
+      @for (item of studentList; track $index) {
+        <article class="student-card">
+          <h3>{{ item.grade }}</h3>
+          <p>{{ item.education }}</p>
+          <div class="student-card-meta">
+            <span class="data-chip">{{ item.CGPA }} CGPA</span>
+            <span class="data-chip">{{ item.bloodgroup }}</span>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+</main>
