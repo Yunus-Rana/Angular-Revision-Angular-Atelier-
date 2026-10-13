@@ -1,59 +1,94 @@
-# Ang
+# Angular Atelier
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8.
+**Angular Atelier** is a small frontend practice studio for learning Angular fundamentals. It brings together examples of variables, data binding, template control flow, and directives in a simple multi-page app.
 
-## Development server
+This is a learning project, not a production application. The examples are intentionally small and use sample data so you can explore Angular concepts and experiment with the code.
 
-To start a local development server, run:
+## What you can explore
 
-```bash
-ng serve
-```
+- **Variables** — component values, dates, objects, and arrays rendered in the template.
+- **Control Flow** — conditional content with `@if`, repeated content with `@for`, form controls, and sample student records.
+- **Data Binding** — interpolation, property binding, event binding, and two-way binding with `ngModel`.
+- **Directives** — a placeholder page for future directive practice.
+- **Navigation** — Angular Router links between the practice pages, including a default route and a not-found page.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+The app uses a shared, responsive visual style and Bootstrap's CSS alongside custom styles.
 
-## Code scaffolding
+## Requirements
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Node.js and npm
 
-```bash
-ng generate component component-name
-```
+## Run locally
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+Clone the repository, open a terminal in the project folder, and install dependencies:
 
 ```bash
-ng build
+npm install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Start the Angular development server:
 
 ```bash
-ng test
+npm start
 ```
 
-## Running end-to-end tests
+Open [http://localhost:4200](http://localhost:4200) in your browser. The server reloads the app when source files change.
 
-For end-to-end (e2e) testing, run:
+## Available commands
 
-```bash
-ng e2e
+| Command | Description |
+| --- | --- |
+| `npm start` | Start the local development server. |
+| `npm run build` | Build the app into `dist/`. |
+| `npm test` | Run unit tests. |
+| `npm run watch` | Rebuild when files change using the development configuration. |
+
+## Project structure
+
+```text
+src/
+├── app/
+│   ├── components/
+│   │   ├── control-flow/
+│   │   ├── databinding/
+│   │   ├── directive-exp/
+│   │   ├── not-found/
+│   │   └── variables/
+│   ├── app.config.ts
+│   ├── app.routes.ts
+│   └── app.ts
+├── styles.css
+└── main.ts
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Built with
 
-## Additional Resources
+- Angular
+- TypeScript
+- Angular Router
+- Bootstrap
+- CSS
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Repository description
+
+Copy this into your GitHub repository's **Description** field:
+
+> Angular Atelier is a styled Angular practice app for exploring variables, data binding, control flow, and template fundamentals.
+
+## Suggested GitHub topics
+
+Copy these into the repository's **Topics** section (GitHub accepts topics individually):
+
+```text
+angular
+angular-cli
+typescript
+frontend
+web-development
+learning-project
+practice-project
+angular-router
+data-binding
+control-flow
+bootstrap
+```
