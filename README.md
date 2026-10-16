@@ -61,34 +61,3 @@ src/
 └── main.ts
 ```
 
-## Built with
-
-- Angular
-- TypeScript
-- Angular Router
-- Bootstrap
-- CSS
-
-## Repository description
-
-Copy this into your GitHub repository's **Description** field:
-
-> Angular Atelier is a styled Angular practice app for exploring variables, data binding, control flow, and template fundamentals.
-
-## Suggested GitHub topics
-
-Copy these into the repository's **Topics** section (GitHub accepts topics individually):
-
-```text
-angular
-angular-cli
-typescript
-frontend
-web-development
-learning-project
-practice-project
-angular-router
-data-binding
-control-flow
-bootstrap
-```
