@@ -3,15 +3,114 @@
     <p class="eyebrow">Practice module 04</p>
     <h1 class="page-title">Directives</h1>
     <p class="page-description">
-      A dedicated space for exploring how directives shape and extend Angular templates.
+      Use attribute directives to change classes and styles in response to your input.
+      Try each control and watch the examples update.
     </p>
   </header>
 
-  <section class="empty-page" aria-label="Directives practice">
-    <div class="panel">
-      <span class="section-label">Template concepts</span>
-      <h2 class="section-heading">Directive practice</h2>
-      <p>directive-exp works!</p>
-    </div>
+  <section class="demo-grid" aria-label="Attribute directive examples">
+    <article class="panel">
+      <span class="section-label">Dynamic class</span>
+      <h2 class="section-heading">Change the panel tone</h2>
+      <div class="directive-preview" [ngClass]="div1classname">
+        <span class="preview-caption">Live preview</span>
+        <strong>Class applied with ngClass</strong>
+      </div>
+      <div class="control-row control-row-spaced">
+        <button
+          class="atelier-button"
+          type="button"
+          (click)="adddiv1classname('directive-success')"
+        >
+          Apply green
+        </button>
+        <button
+          class="atelier-button atelier-button-muted"
+          type="button"
+          (click)="adddiv1classname('directive-error')"
+        >
+          Apply rose
+        </button>
+      </div>
+    </article>
+
+    <article class="panel">
+      <span class="section-label">Conditional class</span>
+      <h2 class="section-heading">Toggle a state</h2>
+      <div
+        class="directive-preview"
+        [ngClass]="ischeckactive ? 'directive-active' : 'directive-inactive'"
+      >
+        <span class="preview-caption">Current state</span>
+        <strong>{{ ischeckactive ? 'Active' : 'Inactive' }}</strong>
+      </div>
+      <label class="control-row control-row-spaced field-label directive-toggle">
+        <input type="checkbox" [(ngModel)]="ischeckactive" />
+        <span>Activate the preview</span>
+      </label>
+    </article>
+
+    <article class="panel">
+      <span class="section-label">Class from a value</span>
+      <h2 class="section-heading">Check your text length</h2>
+      <label class="field-label" for="directive-text">Enter up to 5 characters</label>
+      <input
+        id="directive-text"
+        class="atelier-input"
+        type="text"
+        [(ngModel)]="num1"
+        placeholder="Type something"
+        aria-describedby="directive-validation"
+      />
+      <div
+        id="directive-validation"
+        class="validation-message"
+        [ngClass]="num1.length > 5 ? 'validation-invalid' : 'validation-valid'"
+        aria-live="polite"
+      >
+        <span class="validation-indicator" aria-hidden="true"></span>
+        <span>{{ num1.length > 5 ? 'Text is too long' : 'Text length is valid' }}</span>
+        <span class="character-count">{{ num1.length }} / 5</span>
+      </div>
+    </article>
+
+    <article class="panel">
+      <span class="section-label">Dynamic styles</span>
+      <h2 class="section-heading">Style an element</h2>
+      <div class="style-demo-grid">
+        <div>
+          <span class="field-label">Choose a color</span>
+          <div
+            class="color-preview"
+            [ngStyle]="{ 'background-color': inputcolorval || '#317c68' }"
+          >
+            <span>Color preview</span>
+          </div>
+          <label class="color-picker-control">
+            <input type="color" [(ngModel)]="inputcolorval" aria-label="Choose a preview color" />
+            <span>{{ inputcolorval || 'Pick a color' }}</span>
+          </label>
+        </div>
+
+        <div>
+          <span class="field-label">Choose a shape</span>
+          <div class="shape-stage">
+            <div class="shape-preview" [ngStyle]="div4css" role="img" aria-label="Shape preview"></div>
+          </div>
+          <div class="control-row shape-controls">
+            <button class="atelier-button" type="button" (click)="changetype('circle')">
+              Circle
+            </button>
+            <button
+              class="atelier-button atelier-button-muted"
+              type="button"
+              (click)="changetype('square')"
+            >
+              Square
+            </button>
+          </div>
+        </div>
+      </div>
+    </article>
   </section>
 </main>
